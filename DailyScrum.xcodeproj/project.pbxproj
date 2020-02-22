@@ -15,6 +15,7 @@
 		2B6F24D623FEFB7C00274A3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B6F24D423FEFB7C00274A3B /* LaunchScreen.storyboard */; };
 		2B6F24E123FEFB7D00274A3B /* DailyScrumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F24E023FEFB7D00274A3B /* DailyScrumTests.swift */; };
 		2B6F24EC23FEFB7D00274A3B /* DailyScrumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F24EB23FEFB7D00274A3B /* DailyScrumUITests.swift */; };
+		2B9FEE402401D18100F08B63 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B9FEE3F2401D18100F08B63 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		2B6F24E723FEFB7D00274A3B /* DailyScrumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyScrumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B6F24EB23FEFB7D00274A3B /* DailyScrumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyScrumUITests.swift; sourceTree = "<group>"; };
 		2B6F24ED23FEFB7D00274A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B9FEE3F2401D18100F08B63 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B9FEE402401D18100F08B63 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +86,7 @@
 				2B6F24DF23FEFB7D00274A3B /* DailyScrumTests */,
 				2B6F24EA23FEFB7D00274A3B /* DailyScrumUITests */,
 				2B6F24C723FEFB7C00274A3B /* Products */,
+				2B9FEE3E2401D18100F08B63 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +130,14 @@
 				2B6F24ED23FEFB7D00274A3B /* Info.plist */,
 			);
 			path = DailyScrumUITests;
+			sourceTree = "<group>";
+		};
+		2B9FEE3E2401D18100F08B63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B9FEE3F2401D18100F08B63 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

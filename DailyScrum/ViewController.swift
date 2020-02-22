@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     // Scrum Member Switches
@@ -25,7 +26,8 @@ class ViewController: UIViewController {
     
     var members = [String]()
     var memberCount = 0
-    
+    var soundOn = false
+    var speechSynthesizer = AVSpeechSynthesizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,32 +36,44 @@ class ViewController: UIViewController {
     func showMembers() {
         if (memberCount < members.count){
             orderButton.setTitle(members[memberCount], for: .normal)
+            if soundOn {
+                let speechString: AVSpeechUtterance = AVSpeechUtterance(string: "\(members[memberCount])")
+                speechString.rate = AVSpeechUtteranceMaximumSpeechRate / 2.0
+                speechString.voice = AVSpeechSynthesisVoice(language: "en-US")
+                speechSynthesizer.speak(speechString)
+            }
         } else {
             orderButton.setTitle("Order Complete", for: .normal)
+            if soundOn {
+                let speechString: AVSpeechUtterance = AVSpeechUtterance(string: "Order complete. Thanks")
+                speechString.rate = AVSpeechUtteranceMaximumSpeechRate / 2.0
+                speechString.voice = AVSpeechSynthesisVoice(language: "en-US")
+                speechSynthesizer.speak(speechString)
+            }
         }
     }
     
     @IBAction func randomizeClick(_ sender: Any) {
         members = [String]()
-        if (beatriceSwitch.isOn) {
+        if beatriceSwitch.isOn {
             members.append("Beatrice")
         }
-        if (benSwitch.isOn) {
+        if benSwitch.isOn {
             members.append("Ben")
         }
-        if (gregSwitch.isOn) {
+        if gregSwitch.isOn {
             members.append("Greg")
         }
-        if (jacobSwitch.isOn) {
+        if jacobSwitch.isOn {
             members.append("Jacob")
         }
-        if (mitchellSwitch.isOn) {
+        if mitchellSwitch.isOn {
             members.append("Mitchell")
         }
-        if (viktorSwitch.isOn) {
+        if viktorSwitch.isOn {
             members.append("Viktor")
         }
-        if (willSwitch.isOn) {
+        if willSwitch.isOn {
             members.append("Will")
         }
         members.shuffle()
@@ -71,7 +85,14 @@ class ViewController: UIViewController {
         memberCount += 1
         showMembers()
     }
+    
     @IBAction func soundToggle(_ sender: Any) {
+        soundOn = !soundOn
+        if soundOn {
+            soundButton.setTitle("Sound On", for: .normal)
+        } else {
+            soundButton.setTitle("Sound Off", for: .normal)
+        }
     }
 }
 
