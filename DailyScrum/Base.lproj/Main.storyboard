@@ -154,19 +154,28 @@
                                     <action selector="soundToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tfh-hh-BGL"/>
                                 </connections>
                             </button>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5bY-JC-0O1">
+                                <rect key="frame" x="50" y="671" width="314" height="2"/>
+                                <color key="progressTintColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="trackTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" red="0.22551918415815028" green="0.34692483877262514" blue="0.89718829314720816" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wHI-q5-xKx" secondAttribute="bottom" constant="30" id="6Ln-GJ-EQH"/>
+                            <constraint firstItem="5bY-JC-0O1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="8sM-n4-62c"/>
                             <constraint firstItem="RCV-uo-kMW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="D16-YT-hAG"/>
                             <constraint firstItem="paL-9f-Pw1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="DHe-hz-OZw"/>
+                            <constraint firstItem="5bY-JC-0O1" firstAttribute="top" secondItem="bzQ-qa-5X3" secondAttribute="bottom" constant="20" id="Fmg-0e-OVb"/>
                             <constraint firstItem="bzQ-qa-5X3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="170" id="IgR-am-wQB"/>
                             <constraint firstItem="z27-ti-RVJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="K8I-Mt-Wes"/>
+                            <constraint firstItem="5bY-JC-0O1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OQO-e4-aty"/>
                             <constraint firstItem="bzQ-qa-5X3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YdB-c9-MFC"/>
                             <constraint firstItem="paL-9f-Pw1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aEM-4J-4nA"/>
                             <constraint firstItem="RCV-uo-kMW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="epS-GM-5pJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wHI-q5-xKx" secondAttribute="trailing" constant="60" id="heG-kj-K6e"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="z27-ti-RVJ" secondAttribute="bottom" constant="30" id="kJq-7q-MWU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5bY-JC-0O1" secondAttribute="trailing" constant="30" id="lJZ-4X-wUp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -185,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="138"/>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>

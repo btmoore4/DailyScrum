@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.isIdleTimerDisabled = true
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
         }
