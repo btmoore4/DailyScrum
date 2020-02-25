@@ -134,7 +134,7 @@
                                     <action selector="randomizeClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZKi-BS-bwW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzQ-qa-5X3">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzQ-qa-5X3">
                                 <rect key="frame" x="90.5" y="585" width="233" height="66"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                 <state key="normal" title="Order Start">
@@ -186,6 +186,7 @@
                         <outlet property="jacobSwitch" destination="ERF-gx-4HW" id="i2V-wm-q43"/>
                         <outlet property="mitchellSwitch" destination="oY9-NK-i7m" id="TGk-9H-t97"/>
                         <outlet property="orderButton" destination="bzQ-qa-5X3" id="uPq-ui-M3I"/>
+                        <outlet property="progressBar" destination="5bY-JC-0O1" id="VV7-TR-ddu"/>
                         <outlet property="randomizeButton" destination="wHI-q5-xKx" id="o9k-KG-ysl"/>
                         <outlet property="soundButton" destination="z27-ti-RVJ" id="Juz-Xg-xl1"/>
                         <outlet property="viktorSwitch" destination="UQy-j7-TxG" id="Vi5-Ja-R8r"/>

@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var orderButton: UIButton!
     @IBOutlet weak var randomizeButton: UIButton!
     @IBOutlet weak var soundButton: UIButton!
+    @IBOutlet weak var progressBar: UIProgressView!
     
     var members = [String]()
     var memberCount = 0
@@ -44,6 +45,24 @@ class ViewController: UIViewController {
         catch let error as NSError {
             print("Error: Could not setActive to true: \(error), \(error.userInfo)")
         }
+        Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { timer in
+            self.updateProgressBar()
+        }
+    }
+    
+    func initProgressBar() {
+        progressBar.progress = 0
+        progressBar.isHidden = false //Un-Hiding ProgressBar
+    }
+    
+    func updateProgressBar() {
+        if progressBar.progress < 1.0 {
+            progressBar.progress += 0.00138 //At 0.25 Interval this is 180 seconds
+        }
+    }
+    
+    func stopProgressBar() {
+        progressBar.isHidden = true //Re-Hiding ProgressBar
     }
     
     func showMembers() {
@@ -55,18 +74,21 @@ class ViewController: UIViewController {
                 speechString.voice = AVSpeechSynthesisVoice(language: "en-US")
                 speechSynthesizer.speak(speechString)
             }
+            initProgressBar()
         } else {
             orderButton.setTitle("Order Complete", for: .normal)
             if soundOn {
-                let speechString: AVSpeechUtterance = AVSpeechUtterance(string: "Order complete. Thanks")
+                let speechString: AVSpeechUtterance = AVSpeechUtterance(string: "Scrum Over")
                 speechString.rate = AVSpeechUtteranceMaximumSpeechRate / 2.0
                 speechString.voice = AVSpeechSynthesisVoice(language: "en-US")
                 speechSynthesizer.speak(speechString)
             }
+            stopProgressBar()
         }
     }
     
     @IBAction func randomizeClick(_ sender: Any) {
+        orderButton.isHidden = false
         members = [String]()
         if beatriceSwitch.isOn {
             members.append("Beatrice")
@@ -92,6 +114,7 @@ class ViewController: UIViewController {
         members.shuffle()
         memberCount = 0
         showMembers()
+        initProgressBar()
     }
 
     @IBAction func orderClick(_ sender: Any) {
