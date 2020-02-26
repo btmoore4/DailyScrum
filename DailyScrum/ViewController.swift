@@ -25,10 +25,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var soundButton: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
     
-    var members = [String]()
-    var memberCount = 0
-    var soundOn = false
-    var speechSynthesizer = AVSpeechSynthesizer()
+    let endSpeechString: String = "Scrum Complete"
+    let progressBarInterval: Double  = 1 / 4
+    let turnSeconds: Float  = (1 / 180) / 4
+    
+    var members: [String] = [String]()
+    var memberCount: Int = 0
+    var soundOn: Bool = false
+    var speechSynthesizer: AVSpeechSynthesizer = AVSpeechSynthesizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +49,7 @@ class ViewController: UIViewController {
         catch let error as NSError {
             print("Error: Could not setActive to true: \(error), \(error.userInfo)")
         }
-        Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: progressBarInterval, repeats: true) { timer in
             self.updateProgressBar()
         }
     }
@@ -57,7 +61,7 @@ class ViewController: UIViewController {
     
     func updateProgressBar() {
         if progressBar.progress < 1.0 {
-            progressBar.progress += 0.00138 //At 0.25 Interval this is 180 seconds
+            progressBar.progress += turnSeconds //At 0.25 Interval this is 180 seconds
         }
     }
     
