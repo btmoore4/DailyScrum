@@ -25,29 +25,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var soundButton: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
     
-    let endSpeechString: String = "Scrum Complete"
+    let endSpeechString: String = "scrum over, good luck"
     let progressBarInterval: Double  = 1 / 4
     let turnSeconds: Float  = (1 / 180) / 4
+    let systemSoundID: SystemSoundID = 1016
+    let progressWarningRatio: Float = 5 / 6
     
     var members: [String] = [String]()
     var memberCount: Int = 0
     var soundOn: Bool = false
     var speechSynthesizer: AVSpeechSynthesizer = AVSpeechSynthesizer()
+    var progressWarning: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = true
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
-        }
-        catch let error as NSError {
-            print("Error: Could not set audio category: \(error), \(error.userInfo)")
-        }
-        do {
             try AVAudioSession.sharedInstance().setActive(true)
         }
         catch let error as NSError {
-            print("Error: Could not setActive to true: \(error), \(error.userInfo)")
+            print("Error: Could not setup Audio Session: \(error), \(error.userInfo)")
         }
         Timer.scheduledTimer(withTimeInterval: progressBarInterval, repeats: true) { timer in
             self.updateProgressBar()
@@ -57,11 +55,17 @@ class ViewController: UIViewController {
     func initProgressBar() {
         progressBar.progress = 0
         progressBar.isHidden = false //Un-Hiding ProgressBar
+        progressWarning = true //Reseting Tweet Sound
     }
     
     func updateProgressBar() {
         if progressBar.progress < 1.0 {
             progressBar.progress += turnSeconds //At 0.25 Interval this is 180 seconds
+        } else if progressBar.progress > progressWarningRatio && progressWarning {
+            if soundOn {
+                AudioServicesPlaySystemSound(systemSoundID)
+            }
+            progressWarning = false
         }
     }
     
