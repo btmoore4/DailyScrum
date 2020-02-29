@@ -61,7 +61,8 @@ class ViewController: UIViewController {
     func updateProgressBar() {
         if progressBar.progress < 1.0 {
             progressBar.progress += turnSeconds //At 0.25 Interval this is 180 seconds
-        } else if progressBar.progress > progressWarningRatio && progressWarning {
+        }
+        if progressBar.progress > progressWarningRatio && progressWarning {
             if soundOn {
                 AudioServicesPlaySystemSound(systemSoundID)
             }
