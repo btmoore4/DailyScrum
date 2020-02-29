@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DailyScrum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DailyScrum" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -159,9 +159,17 @@
                                 <color key="progressTintColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="trackTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9R-nP-bfB">
+                                <rect key="frame" x="184" y="104" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="j8F-Wy-H5l" kind="presentation" modalTransitionStyle="coverVertical" id="hiH-jw-2Id"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.22551918415815028" green="0.34692483877262514" blue="0.89718829314720816" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="H9R-nP-bfB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2ZX-Gl-sWQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wHI-q5-xKx" secondAttribute="bottom" constant="30" id="6Ln-GJ-EQH"/>
                             <constraint firstItem="5bY-JC-0O1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="8sM-n4-62c"/>
                             <constraint firstItem="RCV-uo-kMW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="D16-YT-hAG"/>
@@ -170,6 +178,7 @@
                             <constraint firstItem="bzQ-qa-5X3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="170" id="IgR-am-wQB"/>
                             <constraint firstItem="z27-ti-RVJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="K8I-Mt-Wes"/>
                             <constraint firstItem="5bY-JC-0O1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OQO-e4-aty"/>
+                            <constraint firstItem="H9R-nP-bfB" firstAttribute="top" secondItem="paL-9f-Pw1" secondAttribute="bottom" constant="10" id="XOP-f4-4Oc"/>
                             <constraint firstItem="bzQ-qa-5X3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YdB-c9-MFC"/>
                             <constraint firstItem="paL-9f-Pw1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aEM-4J-4nA"/>
                             <constraint firstItem="RCV-uo-kMW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="epS-GM-5pJ"/>
@@ -196,6 +205,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+        <!--Team View Controller-->
+        <scene sceneID="AAW-sG-Di5">
+            <objects>
+                <viewController id="j8F-Wy-H5l" customClass="TeamViewController" customModule="DailyScrum" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hv9-Kg-jfR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EO7-VN-33r">
+                                <rect key="frame" x="184" y="406" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="closeButton:" destination="j8F-Wy-H5l" eventType="touchUpInside" id="0ts-Sj-4zl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EO7-VN-33r" firstAttribute="centerY" secondItem="Hv9-Kg-jfR" secondAttribute="centerY" id="ZBe-zE-dmv"/>
+                            <constraint firstItem="EO7-VN-33r" firstAttribute="centerX" secondItem="Hv9-Kg-jfR" secondAttribute="centerX" id="ZOM-ZX-SSK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KjO-Ne-6Ef"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FbC-rk-dqo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="957" y="138"/>
         </scene>
     </scenes>
 </document>

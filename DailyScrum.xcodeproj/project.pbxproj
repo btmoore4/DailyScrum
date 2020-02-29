@@ -16,6 +16,7 @@
 		2B6F24E123FEFB7D00274A3B /* DailyScrumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F24E023FEFB7D00274A3B /* DailyScrumTests.swift */; };
 		2B6F24EC23FEFB7D00274A3B /* DailyScrumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F24EB23FEFB7D00274A3B /* DailyScrumUITests.swift */; };
 		2B9FEE402401D18100F08B63 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B9FEE3F2401D18100F08B63 /* AVFoundation.framework */; };
+		2B9FEE42240B0A4900F08B63 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9FEE41240B0A4900F08B63 /* TeamViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		2B6F24EB23FEFB7D00274A3B /* DailyScrumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyScrumUITests.swift; sourceTree = "<group>"; };
 		2B6F24ED23FEFB7D00274A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B9FEE3F2401D18100F08B63 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2B9FEE41240B0A4900F08B63 /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				2B6F24C923FEFB7C00274A3B /* AppDelegate.swift */,
 				2B6F24CB23FEFB7C00274A3B /* SceneDelegate.swift */,
 				2B6F24CD23FEFB7C00274A3B /* ViewController.swift */,
+				2B9FEE41240B0A4900F08B63 /* TeamViewController.swift */,
 				2B6F24CF23FEFB7C00274A3B /* Main.storyboard */,
 				2B6F24D223FEFB7C00274A3B /* Assets.xcassets */,
 				2B6F24D423FEFB7C00274A3B /* LaunchScreen.storyboard */,
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B6F24CE23FEFB7C00274A3B /* ViewController.swift in Sources */,
+				2B9FEE42240B0A4900F08B63 /* TeamViewController.swift in Sources */,
 				2B6F24CA23FEFB7C00274A3B /* AppDelegate.swift in Sources */,
 				2B6F24CC23FEFB7C00274A3B /* SceneDelegate.swift in Sources */,
 			);
