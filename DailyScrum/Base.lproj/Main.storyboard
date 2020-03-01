@@ -160,8 +160,11 @@
                                 <color key="trackTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9R-nP-bfB">
-                                <rect key="frame" x="184" y="104" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="140" y="104" width="134" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Open Member List">
+                                    <color key="titleColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="j8F-Wy-H5l" kind="presentation" modalTransitionStyle="coverVertical" id="hiH-jw-2Id"/>
                                 </connections>
@@ -216,7 +219,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IZ1-b4-dQ0">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="822"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="teamTableCell" id="Dt9-R7-0O3">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -225,12 +228,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.41161810539999999" green="0.41143799920000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EO7-VN-33r">
-                                <rect key="frame" x="184" y="748" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="139" y="758" width="136" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Close Member List">
+                                    <color key="titleColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="closeButton:" destination="j8F-Wy-H5l" eventType="touchUpInside" id="0ts-Sj-4zl"/>
                                 </connections>
@@ -240,7 +247,7 @@
                         <constraints>
                             <constraint firstItem="IZ1-b4-dQ0" firstAttribute="leading" secondItem="KjO-Ne-6Ef" secondAttribute="leading" id="3rf-H1-oSx"/>
                             <constraint firstItem="IZ1-b4-dQ0" firstAttribute="top" secondItem="KjO-Ne-6Ef" secondAttribute="top" id="56e-pf-4OU"/>
-                            <constraint firstItem="KjO-Ne-6Ef" firstAttribute="bottom" secondItem="EO7-VN-33r" secondAttribute="bottom" constant="30" id="Z3k-tG-eIH"/>
+                            <constraint firstItem="KjO-Ne-6Ef" firstAttribute="bottom" secondItem="EO7-VN-33r" secondAttribute="bottom" constant="20" id="Z3k-tG-eIH"/>
                             <constraint firstItem="EO7-VN-33r" firstAttribute="centerX" secondItem="Hv9-Kg-jfR" secondAttribute="centerX" id="ZOM-ZX-SSK"/>
                             <constraint firstAttribute="bottom" secondItem="IZ1-b4-dQ0" secondAttribute="bottom" constant="20" symbolic="YES" id="ezH-Rk-THO"/>
                             <constraint firstItem="IZ1-b4-dQ0" firstAttribute="trailing" secondItem="KjO-Ne-6Ef" secondAttribute="trailing" id="oIQ-Zc-Bis"/>

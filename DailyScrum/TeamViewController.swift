@@ -33,4 +33,17 @@ class TeamViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.textLabel?.text = members[indexPath.item]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            members.remove(at: indexPath.row)
+            teamTable.beginUpdates()
+            teamTable.deleteRows(at: [indexPath], with: .automatic)
+            teamTable.endUpdates()
+        }
+    }
 }
