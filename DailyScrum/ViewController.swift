@@ -36,6 +36,7 @@ class ViewController: UIViewController {
     var soundOn: Bool = false
     var speechSynthesizer: AVSpeechSynthesizer = AVSpeechSynthesizer()
     var progressWarning: Bool = false
+    var scrumTimer = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,7 @@ class ViewController: UIViewController {
         }
         Timer.scheduledTimer(withTimeInterval: progressBarInterval, repeats: true) { timer in
             self.updateProgressBar()
+            self.scrumTimer += 0.25
         }
     }
     
@@ -85,7 +87,7 @@ class ViewController: UIViewController {
             }
             initProgressBar()
         } else {
-            orderButton.setTitle("Order Complete", for: .normal)
+            orderButton.setTitle("Total Time: \(scrumTimer)s", for: .normal)
             if soundOn {
                 let speechString: AVSpeechUtterance = AVSpeechUtterance(string: "Scrum Over")
                 speechString.rate = AVSpeechUtteranceMaximumSpeechRate / 2.0
@@ -122,6 +124,7 @@ class ViewController: UIViewController {
         }
         members.shuffle()
         memberCount = 0
+        scrumTimer = 0
         showMembers()
         initProgressBar()
     }
