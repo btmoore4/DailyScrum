@@ -87,9 +87,10 @@ class ViewController: UIViewController {
             }
             initProgressBar()
         } else {
-            orderButton.setTitle("Total Time: \(scrumTimer)s", for: .normal)
+            let scrumOver = "Total Time: \(scrumTimer)"
+            orderButton.setTitle("\(scrumOver)s", for: .normal)
             if soundOn {
-                let speechString: AVSpeechUtterance = AVSpeechUtterance(string: "Scrum Over")
+                let speechString: AVSpeechUtterance = AVSpeechUtterance(string: "scrum over. \(scrumOver) seconds")
                 speechString.rate = AVSpeechUtteranceMaximumSpeechRate / 2.0
                 speechString.voice = AVSpeechSynthesisVoice(language: "en-US")
                 speechSynthesizer.speak(speechString)
