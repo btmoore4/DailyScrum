@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
     
     let endSpeechString: String = "scrum over, good luck"
+    let timerInterval: Double  = 1
     let progressBarInterval: Double  = 1 / 4
     let turnSeconds: Float  = (1 / 180) / 4
     let systemSoundID: SystemSoundID = 1016
@@ -48,9 +49,11 @@ class ViewController: UIViewController {
         catch let error as NSError {
             print("Error: Could not setup Audio Session: \(error), \(error.userInfo)")
         }
+        Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { timer in
+            self.scrumTimer += 1.0
+        }
         Timer.scheduledTimer(withTimeInterval: progressBarInterval, repeats: true) { timer in
             self.updateProgressBar()
-            self.scrumTimer += 0.25
         }
     }
     
