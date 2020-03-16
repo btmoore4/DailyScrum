@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     let progressWarningRatio: Float = 5 / 6
     
     var members: [String] = [String]()
-    var memberTimes: [NSDate] = [NSDate]()
+    var memberTimes: [Date] = [Date]()
     var memberCount: Int = 0
     var soundOn: Bool = false
     var speechSynthesizer: AVSpeechSynthesizer = AVSpeechSynthesizer()
@@ -89,6 +89,8 @@ class ViewController: UIViewController {
                 speechString.voice = AVSpeechSynthesisVoice(language: "en-US")
                 speechSynthesizer.speak(speechString)
             }
+            memberTimes.append(NSDate.now)
+            print(memberTimes)
             initProgressBar()
         } else {
             let scrumOver = "Total Time: \(scrumTimer)"
@@ -132,7 +134,7 @@ class ViewController: UIViewController {
         scrumTimer = 0
         showMembers()
         initProgressBar()
-        memberTimes = [NSDate]()
+        memberTimes = [Date]()
     }
 
     @IBAction func orderClick(_ sender: Any) {
