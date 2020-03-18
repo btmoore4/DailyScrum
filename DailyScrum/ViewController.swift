@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
     
     let endSpeechString: String = "scrum over, good luck"
-    let timerInterval: Double  = 1
     let progressBarInterval: Double  = 1 / 4
     let turnSeconds: Float  = (1 / 180) / 4
     let systemSoundID: SystemSoundID = 1016
@@ -38,7 +37,6 @@ class ViewController: UIViewController {
     var soundOn: Bool = false
     var speechSynthesizer: AVSpeechSynthesizer = AVSpeechSynthesizer()
     var progressWarning: Bool = false
-    var scrumTimer = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,9 +47,6 @@ class ViewController: UIViewController {
         }
         catch let error as NSError {
             print("Error: Could not setup Audio Session: \(error), \(error.userInfo)")
-        }
-        Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { timer in
-            self.scrumTimer += 1.0
         }
         Timer.scheduledTimer(withTimeInterval: progressBarInterval, repeats: true) { timer in
             self.updateProgressBar()
@@ -93,10 +88,15 @@ class ViewController: UIViewController {
             print(memberTimes)
             initProgressBar()
         } else {
-            let scrumOver = "Total Time: \(scrumTimer)"
-            orderButton.setTitle("\(scrumOver)s", for: .normal)
+            let dateComponentsFormatter = DateComponentsFormatter()
+            dateComponentsFormatter.allowedUnits = [.day, .hour, .minute, .second]
+            dateComponentsFormatter.maximumUnitCount = 2
+            dateComponentsFormatter.unitsStyle = DateComponentsFormatter.UnitsStyle.full
+            let timeDifference = dateComponentsFormatter.string(from: memberTimes[0], to: memberTimes[memberTimes.count - 1])!
+            print(timeDifference)
+            orderButton.setTitle("Total Time: \(timeDifference)", for: .normal)
             if soundOn {
-                let speechString: AVSpeechUtterance = AVSpeechUtterance(string: "scrum over. \(scrumOver) seconds")
+                let speechString: AVSpeechUtterance = AVSpeechUtterance(string: "scrum over. \(timeDifference)")
                 speechString.rate = AVSpeechUtteranceMaximumSpeechRate / 2.0
                 speechString.voice = AVSpeechSynthesisVoice(language: "en-US")
                 speechSynthesizer.speak(speechString)
@@ -131,7 +131,6 @@ class ViewController: UIViewController {
         }
         members.shuffle()
         memberCount = 0
-        scrumTimer = 0
         showMembers()
         initProgressBar()
         memberTimes = [Date]()
