@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var beatriceSwitch: UISwitch!
     @IBOutlet weak var benSwitch: UISwitch!
     @IBOutlet weak var gregSwitch: UISwitch!
-    @IBOutlet weak var jacobSwitch: UISwitch!
     @IBOutlet weak var mitchellSwitch: UISwitch!
     @IBOutlet weak var viktorSwitch: UISwitch!
     @IBOutlet weak var willSwitch: UISwitch!
@@ -24,20 +23,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var randomizeButton: UIButton!
     @IBOutlet weak var soundButton: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
-    
-    let endSpeechString: String = "scrum over, good luck"
-    let progressBarInterval: Double  = 1 / 4
-    let turnSeconds: Float  = (1 / 180) / 4
-    let systemSoundID: SystemSoundID = 1016
-    let progressWarningRatio: Float = 5 / 6
-    
+
+    // Control Variables
     var members: [String] = [String]()
     var memberTimes: [Date] = [Date]()
     var memberCount: Int = 0
     var soundOn: Bool = false
-    var speechSynthesizer: AVSpeechSynthesizer = AVSpeechSynthesizer()
-    var progressWarning: Bool = false
     
+    // Sound Constants
+    let speechSynthesizer: AVSpeechSynthesizer = AVSpeechSynthesizer()
+    let systemSoundID: SystemSoundID = 1016
+    
+    // Progress Bar Constants
+    let progressBarTickRate: Int = 4 // Number of ticks in a second
+    let progressBarDuration: Int = 180 // Number in seconds
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = true
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         catch let error as NSError {
             print("Error: Could not setup Audio Session: \(error), \(error.userInfo)")
         }
-        Timer.scheduledTimer(withTimeInterval: progressBarInterval, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 1.0 / Double(progressBarTickRate), repeats: true) { timer in
             self.updateProgressBar()
         }
     }
@@ -56,18 +56,11 @@ class ViewController: UIViewController {
     func initProgressBar() {
         progressBar.progress = 0
         progressBar.isHidden = false //Un-Hiding ProgressBar
-        progressWarning = true //Reseting Tweet Sound
     }
     
     func updateProgressBar() {
         if progressBar.progress < 1.0 {
-            progressBar.progress += turnSeconds //At 0.25 Interval this is 180 seconds
-        }
-        if progressBar.progress > progressWarningRatio && progressWarning {
-            if soundOn {
-                AudioServicesPlaySystemSound(systemSoundID)
-            }
-            progressWarning = false
+            progressBar.progress += Float(1.0 / Double(progressBarTickRate * progressBarDuration))
         }
     }
     
@@ -85,7 +78,6 @@ class ViewController: UIViewController {
                 speechSynthesizer.speak(speechString)
             }
             memberTimes.append(NSDate.now)
-            print(memberTimes)
             initProgressBar()
         } else {
             let dateComponentsFormatter = DateComponentsFormatter()
@@ -117,9 +109,6 @@ class ViewController: UIViewController {
         if gregSwitch.isOn {
             members.append("Greg")
         }
-        if jacobSwitch.isOn {
-            members.append("Jacob")
-        }
         if mitchellSwitch.isOn {
             members.append("Mitchell")
         }
@@ -150,4 +139,3 @@ class ViewController: UIViewController {
         }
     }
 }
-
