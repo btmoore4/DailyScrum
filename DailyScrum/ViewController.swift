@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     // Progress Bar Constants
     let progressBarTickRate: Int = 4 // Number of ticks in a second
     let progressBarDuration: Int = 180 // Number in seconds
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = true
@@ -51,6 +51,11 @@ class ViewController: UIViewController {
         Timer.scheduledTimer(withTimeInterval: 1.0 / Double(progressBarTickRate), repeats: true) { timer in
             self.updateProgressBar()
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let teamViewController = segue.destination as! TeamViewController
+        teamViewController.members = members
     }
     
     func initProgressBar() {

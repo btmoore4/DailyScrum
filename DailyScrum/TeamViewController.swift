@@ -22,7 +22,7 @@ class TeamViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     @IBOutlet weak var teamTable: UITableView!
-    var members: [String] = [String](arrayLiteral: "Ben", "Beatrice", "Mitchell")
+    var members: [String] = [String]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return members.count
