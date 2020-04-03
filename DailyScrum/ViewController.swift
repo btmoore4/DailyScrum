@@ -74,6 +74,7 @@ class ViewController: UIViewController {
     }
     
     func showMembers() {
+        memberTimes.append(NSDate.now)
         if (memberCount < members.count){
             orderButton.setTitle(members[memberCount], for: .normal)
             if soundOn {
@@ -82,18 +83,12 @@ class ViewController: UIViewController {
                 speechString.voice = AVSpeechSynthesisVoice(language: "en-US")
                 speechSynthesizer.speak(speechString)
             }
-            memberTimes.append(NSDate.now)
             initProgressBar()
         } else {
-            let dateComponentsFormatter = DateComponentsFormatter()
-            dateComponentsFormatter.allowedUnits = [.day, .hour, .minute, .second]
-            dateComponentsFormatter.maximumUnitCount = 2
-            dateComponentsFormatter.unitsStyle = DateComponentsFormatter.UnitsStyle.full
-            let timeDifference = dateComponentsFormatter.string(from: memberTimes[0], to: memberTimes[memberTimes.count - 1])!
-            print(timeDifference)
-            orderButton.setTitle("Total Time: \(timeDifference)", for: .normal)
+            let timeDifference = Int(memberTimes[memberTimes.count - 1].timeIntervalSince(memberTimes[0]))
+            orderButton.setTitle("Time: \(timeDifference) seconds", for: .normal)
             if soundOn {
-                let speechString: AVSpeechUtterance = AVSpeechUtterance(string: "scrum over. \(timeDifference)")
+                let speechString: AVSpeechUtterance = AVSpeechUtterance(string: "scrum over. \(timeDifference) seconds")
                 speechString.rate = AVSpeechUtteranceMaximumSpeechRate / 2.0
                 speechString.voice = AVSpeechSynthesisVoice(language: "en-US")
                 speechSynthesizer.speak(speechString)
@@ -127,7 +122,7 @@ class ViewController: UIViewController {
         memberCount = 0
         showMembers()
         initProgressBar()
-        memberTimes = [Date]()
+        memberTimes = [Date]([NSDate.now])
     }
 
     @IBAction func orderClick(_ sender: Any) {
