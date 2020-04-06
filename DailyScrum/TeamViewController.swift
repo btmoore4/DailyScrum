@@ -31,6 +31,7 @@ class TeamViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "teamTableCell", for: indexPath)
         cell.textLabel?.text = members[indexPath.item]
+        cell.textLabel?.textColor = UIColor.white
         return cell
     }
     
