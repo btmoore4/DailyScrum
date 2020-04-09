@@ -15,6 +15,7 @@ class TeamViewController: UIViewController, UITableViewDataSource, UITableViewDe
         teamTable.dataSource = self
         teamTable.delegate = self
         teamTable.tableFooterView = UIView(frame: CGRect.zero)
+        teamTable.allowsMultipleSelection = true
     }
     
     @IBAction func closeButton(_ sender: Any) {

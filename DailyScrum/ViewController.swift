@@ -58,6 +58,13 @@ class ViewController: UIViewController {
         teamViewController.members = members
     }
     
+    @IBAction func unwindToThisView(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? TeamViewController {
+            members = sourceViewController.members
+        }
+        print(members)
+    }
+    
     func initProgressBar() {
         progressBar.progress = 0
         progressBar.isHidden = false //Un-Hiding ProgressBar

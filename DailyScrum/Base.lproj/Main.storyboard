@@ -225,6 +225,7 @@
                                 </state>
                                 <connections>
                                     <action selector="closeButton:" destination="j8F-Wy-H5l" eventType="touchUpInside" id="0ts-Sj-4zl"/>
+                                    <segue destination="FaB-TC-2mf" kind="unwind" unwindAction="unwindToThisViewWithSender:" id="8Zm-FU-FIn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -244,6 +245,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FbC-rk-dqo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="FaB-TC-2mf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="956.52173913043487" y="137.94642857142856"/>
         </scene>
