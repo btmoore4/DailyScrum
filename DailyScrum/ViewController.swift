@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var beatriceSwitch: UISwitch!
     @IBOutlet weak var benSwitch: UISwitch!
     @IBOutlet weak var gregSwitch: UISwitch!
+    @IBOutlet weak var kateSwitch: UISwitch!
     @IBOutlet weak var mitchellSwitch: UISwitch!
     @IBOutlet weak var viktorSwitch: UISwitch!
     @IBOutlet weak var willSwitch: UISwitch!
@@ -115,6 +116,9 @@ class ViewController: UIViewController {
         }
         if gregSwitch.isOn {
             members.append("Greg")
+        }
+        if kateSwitch.isOn {
+            members.append("Kate")
         }
         if mitchellSwitch.isOn {
             members.append("Mitchell")
